@@ -23,19 +23,17 @@ def main():
     else:
         default_mode()
 
-def fetch_weather_data():
-    print("Fetching weather data from OpenWeatherMap...")
+def fetch_weather_data(lat=34.0522, lon=-118.2437):
+    """
+    Fetch weather data for specific coordinates.
+    """
+    print(f"Fetching weather data for coordinates: {lat}, {lon}")
     
     OPENWEATHERMAP_API_KEY = os.getenv("OPENWEATHERMAP_API_KEY")
     if not OPENWEATHERMAP_API_KEY:
         print("Error: OpenWeatherMap API key not found in environment variables")
         return {}
-        
-    # Los Angeles coordinates
-    lat = 34.0522
-    lon = -118.2437
     
-    # Using v2.5 API endpoint instead of v3.0
     url = f"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={OPENWEATHERMAP_API_KEY}&units=metric"
     
     try:
@@ -82,19 +80,10 @@ def fetch_weather_data():
 def get_foursquare_data(query="coffee", near="Los Angeles, CA", limit=5):
     """
     Fetch data from Foursquare API based on user-provided query and location.
-    
-    Args:
-        query (str): The search query, e.g., "coffee".
-        near (str): The location to search near, e.g., "San Marino, CA".
-        limit (int): The number of results to fetch.
-    
-    Returns:
-        list: A list of dictionaries containing place information.
     """
     print(f"Fetching data from Foursquare API for query '{query}' near '{near}'...")
     FOURSQUARE_API_KEY = os.getenv("FOURSQUARE_API_KEY")
     
-    # Construct the URL dynamically based on query and near
     url = f"https://api.foursquare.com/v3/places/search?query={query}&near={near.replace(' ', '%20')}&limit={limit}"
 
     headers = {
@@ -111,7 +100,9 @@ def get_foursquare_data(query="coffee", near="Los Angeles, CA", limit=5):
             places.append({
                 'Name': place.get('name'),
                 'Address': place.get('location', {}).get('formatted_address', 'N/A'),
-                'Category': place.get('categories', [{}])[0].get('name', 'N/A')
+                'Category': place.get('categories', [{}])[0].get('name', 'N/A'),
+                'Latitude': place.get('geocodes', {}).get('main', {}).get('latitude'),
+                'Longitude': place.get('geocodes', {}).get('main', {}).get('longitude')
             })
         print(f"Successfully fetched {len(places)} places from Foursquare.")
         return places

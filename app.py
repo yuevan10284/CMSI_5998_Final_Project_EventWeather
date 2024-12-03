@@ -24,5 +24,13 @@ def explore():
     weather_data = fetch_weather_data()
     return render_template('explore.html', events=events, weather=weather_data)
 
+@app.route('/weather', methods=['POST'])
+def get_weather():
+    data = request.json
+    lat = data.get('lat')
+    lon = data.get('lon')
+    weather_data = fetch_weather_data(lat, lon)
+    return jsonify(weather_data)
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
