@@ -25,4 +25,4 @@ def explore():
     return render_template('explore.html', events=events, weather=weather_data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
