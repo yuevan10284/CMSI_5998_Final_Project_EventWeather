@@ -149,3 +149,47 @@ input:focus {
 }
 
 /* Add more styling as needed */
+
+.events-section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: -40px auto;
+}
+
+.events-section h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(138,43,226,0.3);
+}
+
+.events-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid rgb(138,43,226);
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(138,43,226,0.3);
+}
+
+.event-card h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.event-location, .event-date {
+    color: #ccc;
+    margin: 5px 0;
+}

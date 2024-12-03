@@ -13,7 +13,20 @@
     </div>
 
     <div id="results-container">
-        <!-- Results will be dynamically inserted here -->
+        <!-- Search results will be dynamically inserted here -->
+    </div>
+
+    <div class="events-section">
+        <h2>Upcoming Events in Los Angeles</h2>
+        <div class="events-container">
+            {% for event in events %}
+            <div class="event-card" onclick="showEventWeather('{{ event.Location }}')">
+                <h3>{{ event.Title }}</h3>
+                <p class="event-location">📍 {{ event.Location }}</p>
+                <p class="event-date">📅 {{ event.Date }}</p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 
     <div id="weather-modal" class="modal">

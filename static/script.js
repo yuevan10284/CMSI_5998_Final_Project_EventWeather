@@ -100,3 +100,20 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.addEventListener('keypress', handleEnterKey);
     locationInput.addEventListener('keypress', handleEnterKey);
 });
+
+function showEventWeather(location) {
+    // Use geocoding to convert location to coordinates
+    const geocodingUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(location)}&limit=1&appid=YOUR_API_KEY`;
+    
+    fetch(geocodingUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                const { lat, lon } = data[0];
+                showWeather(location, lat, lon);
+            } else {
+                console.error('Location not found');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}

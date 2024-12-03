@@ -5,7 +5,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    events = scrape_events(limit=10)
+    weather_data = fetch_weather_data()
+    return render_template('home.html', events=events, weather=weather_data)
 
 @app.route('/search', methods=['POST'])
 def search():
