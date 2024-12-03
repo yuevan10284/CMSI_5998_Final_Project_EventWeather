@@ -1,0 +1,65 @@
+{
+    "current": {
+        "temperature": 15.44,
+        "description": "clear sky",
+        "humidity": 68,
+        "wind_speed": 0.71
+    },
+    "daily_forecast": [
+        {
+            "date": "2024-12-02",
+            "temperature": {
+                "day": 15.44,
+                "min": 15.44,
+                "max": 17.17
+            },
+            "description": "clear sky",
+            "humidity": 68,
+            "wind_speed": 0.71
+        },
+        {
+            "date": "2024-12-03",
+            "temperature": {
+                "day": 16.75,
+                "min": 16.75,
+                "max": 16.75
+            },
+            "description": "broken clouds",
+            "humidity": 41,
+            "wind_speed": 0.79
+        },
+        {
+            "date": "2024-12-04",
+            "temperature": {
+                "day": 16.85,
+                "min": 16.85,
+                "max": 16.85
+            },
+            "description": "clear sky",
+            "humidity": 43,
+            "wind_speed": 1.14
+        },
+        {
+            "date": "2024-12-05",
+            "temperature": {
+                "day": 17.52,
+                "min": 17.52,
+                "max": 17.52
+            },
+            "description": "clear sky",
+            "humidity": 40,
+            "wind_speed": 0.91
+        },
+        {
+            "date": "2024-12-06",
+            "temperature": {
+                "day": 18.68,
+                "min": 18.68,
+                "max": 18.68
+            },
+            "description": "clear sky",
+            "humidity": 34,
+            "wind_speed": 0.64
+        }
+    ]
+}

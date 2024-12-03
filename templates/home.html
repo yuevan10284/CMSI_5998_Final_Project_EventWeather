@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EventWeather</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1 class="main-title">EventWeather</h1>
+    <div class="search-container">
+        <input type="text" id="searchQuery" placeholder="Search for places...">
+        <input type="text" id="location" value="Los Angeles, CA">
+        <button onclick="searchPlaces()">Search</button>
+    </div>
+
+    <div id="results-container">
+        <!-- Results will be dynamically inserted here -->
+    </div>
+
+    <div id="weather-modal" class="modal">
+        <!-- Weather data will be shown here -->
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 

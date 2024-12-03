@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Explore Events</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="events-container">
+        {% for event in events %}
+        <div class="event-card" onclick="showWeather('{{ event.Title }}')">
+            <h3>{{ event.Title }}</h3>
+            <p>{{ event.Location }}</p>
+            <p>{{ event.Date }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="weather-modal" class="modal">
+        <!-- Weather data will be shown here -->
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
